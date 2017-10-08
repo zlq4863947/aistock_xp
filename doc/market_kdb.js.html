@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>market/kdb.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-common_schedule-Scheduler.html">Scheduler</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-Scheduler.html#invok">invok</a></li></ul></li><li><a href="module-common_schedule-TaskList.html">TaskList</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-TaskList.html#autoRakutennLogin">autoRakutennLogin</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#do">do</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#doSniper">doSniper</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#updateTodayQuote">updateTodayQuote</a></li></ul></li><li><a href="module-core_analyst-Analyst.html">Analyst</a><ul class='methods'><li data-type='method'><a href="module-core_analyst-Analyst.html#getKDList">getKDList</a></li></ul></li><li><a href="module-core_inspector-DdeInspector.html">DdeInspector</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-DdeInspector.html#listen">listen</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#runServ">runServ</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#sendTick">sendTick</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#start">start</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#stop">stop</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchDde">watchDde</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchQuote">watchQuote</a></li></ul></li><li><a href="module-core_inspector-WebSocket.html">WebSocket</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-WebSocket.html#close">close</a></li><li data-type='method'><a href="module-core_inspector-WebSocket.html#listen">listen</a></li></ul></li><li><a href="module-core_sniper-Sniper.html">Sniper</a><ul class='methods'><li data-type='method'><a href="module-core_sniper-Sniper.html#start">start</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#stop">stop</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#watch">watch</a></li></ul></li><li><a href="module-core_webdriver-WebDriver.html">WebDriver</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver-WebDriver.html#end">end</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#getPrice">getPrice</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#init">init</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#refresh">refresh</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb-Gdb.html">Gdb</a><ul class='methods'><li data-type='method'><a href="module-market_gdb-Gdb.html#calcK">calcK</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#get">get</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#makeNowS">makeNowS</a></li></ul></li><li><a href="module-market_hesonogoma-Hesonogoma.html">Hesonogoma</a><ul class='methods'><li data-type='method'><a href="module-market_hesonogoma-Hesonogoma.html#getStockList">getStockList</a></li></ul></li><li><a href="module-market_kdb-Kdb.html">Kdb</a><ul class='methods'><li data-type='method'><a href="module-market_kdb-Kdb.html#getHead">getHead</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-common_log.html">common/log</a><ul class='methods'><li data-type='method'><a href="module-common_log.html#~get">get</a></li><li data-type='method'><a href="module-common_log.html#~init">init</a></li></ul></li><li><a href="module-common_schedule.html">common/schedule</a></li><li><a href="module-common_util.html">common/util</a><ul class='methods'><li data-type='method'><a href="module-common_util.html#~getCsvData">getCsvData</a></li><li data-type='method'><a href="module-common_util.html#~getHttp">getHttp</a></li><li data-type='method'><a href="module-common_util.html#~getHttps">getHttps</a></li><li data-type='method'><a href="module-common_util.html#~getNowDate">getNowDate</a></li><li data-type='method'><a href="module-common_util.html#~getNowDatetime">getNowDatetime</a></li><li data-type='method'><a href="module-common_util.html#~getTrend">getTrend</a></li><li data-type='method'><a href="module-common_util.html#~isHoliday">isHoliday</a></li><li data-type='method'><a href="module-common_util.html#~isTradeDate">isTradeDate</a></li><li data-type='method'><a href="module-common_util.html#~isWeekend">isWeekend</a></li><li data-type='method'><a href="module-common_util.html#~leftpad">leftpad</a></li><li data-type='method'><a href="module-common_util.html#~sleep">sleep</a></li><li data-type='method'><a href="module-common_util.html#~toStockArr">toStockArr</a></li><li data-type='method'><a href="module-common_util.html#~toStockObj">toStockObj</a></li></ul></li><li><a href="module-core_analyst.html">core/analyst</a></li><li><a href="module-core_inspector.html">core/inspector</a></li><li><a href="module-core_sniper.html">core/sniper</a></li><li><a href="module-core_webdriver.html">core/webdriver</a></li><li><a href="module-core_webdriver_helper.html">core/webdriver/helper</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver_helper.html#.errLogin">errLogin</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.login">login</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginCancel">marginCancel</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.spotBuy">spotBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb.html">market/gdb</a></li><li><a href="module-market_hesonogoma.html">market/hesonogoma</a></li><li><a href="module-market_kdb.html">market/kdb</a></li></ul><h3>Mixins</h3><ul><li><a href="globalNS.method1.html">method1</a></li></ul><h3>Global</h3><ul><li><a href="global.html#app">app</a></li><li><a href="global.html#bar">bar</a></li><li><a href="global.html#bloviate">bloviate</a></li><li><a href="global.html#foo">foo</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">market/kdb.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Kdb接口模块
+ * 
+ * @module market/kdb
+ */
+import store from '../store/mysql';
+import util from '../common/util';
+import logger from '../common/log';
+import Analyst from '../core/analyst';
+import cheerio from 'cheerio';
+var Store = require("jfs");
+var db = new Store(".");
+const analyst = new Analyst();
+
+/**
+ * @class
+ * @classdesc {@link http://k-db.com/stocks/|Kdb接口}
+ */
+class Kdb {
+	constructor() {}
+
+	/**
+	 * 获取股票基本情报
+	 * @param  {string}   code 股票代码
+	 * @param  {Function} fn 回调函数
+	 * @return {object} 股票基本情报
+	 */
+	getHead(code, fn) {
+		let $ = null,
+			url = 'http://k-db.com/stocks/' + code;
+		if (url.indexOf('-T') == -1) url += '-T';
+		util.getHttp(url, (res) => {
+			$ = cheerio.load(res);
+			if ($) {
+				let title = $("h1").text(); // [5341 東証2部] アサヒ衛陶 日足 時系列データ
+
+				if (title.indexOf('[') == -1) {
+					if (typeof fn != 'undefined')
+						fn &amp;&amp; fn(null);
+					return false;
+				}
+				let [left, right] = title.split(']'); // ["[5341 東証2部", " アサヒ衛陶 日足 時系列データ"]
+				let cg = left.substr(1, left.length).split(' ');
+				let [c, g] = cg, n = right.substr(1, right.length).split(' ')[0];
+				let info = {
+					code: c,
+					name: n,
+					group: g,
+					title: title
+				};
+				if (typeof fn != 'undefined')
+					fn &amp;&amp; fn(info);
+			}
+		});
+	}
+
+	getHistory(code, fn) {
+		let url = 'http://k-db.com/stocks/' + code;
+		if (url.indexOf('-T') == -1) {
+			url += '-T';
+		}
+		url += '?download=csv';
+		util.getCsvData(code, url, (res) => {
+			logger.info('通过kdb获取：', code, ',历史csv数据。');
+			if (res &amp;&amp; res.length != 0) {
+				res.shift();
+				// 正序排序
+				res = res.reverse();
+				// kd值计算
+				let kdList = analyst.getKDList(res.map(util.toStockObj));
+				if (kdList &amp;&amp; kdList.length != 0) {
+					// kd值list在元list的偏移大小
+					let offset = res.length - kdList.length;
+					// 添加kd值
+					for (let i = 0; i &lt; kdList.length; i++) {
+						// k
+						res[offset + i][11] = (kdList[i].k || kdList[i].k == 0) ? Math.round(kdList[i].k) : null;
+						// d
+						res[offset + i][12] = (kdList[i].d || kdList[i].d == 0) ? Math.round(kdList[i].d) : null;
+					}
+				}
+
+				// 数据整理
+				for (let i = 0; i &lt; res.length; i++) {
+					res[i][2] = parseFloat(res[i][2]) + '';
+					res[i][3] = parseFloat(res[i][3]) + '';
+					res[i][4] = parseFloat(res[i][4]) + '';
+					res[i][5] = parseFloat(res[i][5]) + '';
+					if (i > 0) {
+						// 获取趋势
+						res[i][8] = util.getTrend(res[i - 1], res[i]);
+					} else {
+						res[i][8] = null;
+					}
+					// 间隔
+					res[i][9] = null;
+					// 时间
+					res[i][10] = null;
+					// k
+					if (!res[i][11] &amp;&amp; res[i][11] != 0)
+						res[i][11] = null;
+					// d
+					if (!res[i][12] &amp;&amp; res[i][12] != 0)
+						res[i][12] = null;
+				}
+				if (typeof fn != 'undefined')
+					fn &amp;&amp; fn(res);
+			} else {
+				logger.error(code, ',未获取历史数据')
+			}
+		});
+	}
+
+	copyQuote(code, fn) {
+		// 通过web获取
+		this.getHead(code, (info) => {
+			logger.info(code, ',copyQuote:通过web获取,', info);
+
+			// 查询到数据时保存DB
+			if (info) {
+				store.select('stock_master', {
+					code: code
+				}, (data) => {
+					if (!data || data.length == 0) {
+						// 写入DB
+						store.insert('stock_master', info);
+					}
+				});
+				// 获取历史数据
+				this.getHistory(code, (list) => {
+					//logger.info('copyQuote->getHistory:取历史数据;', list);
+					logger.info(
+						'copyQuote->getHistory:获取%d条历史数据;%s\n...\n%s',
+						list.length,
+						JSON.stringify(list[0], null, 2),
+						JSON.stringify(list[list.length - 1], null, 2)
+					);
+
+					// 写入DB
+					if (list &amp;&amp; list.length != 0) {
+						store.insertMulti('stock', list);
+					}
+
+					let res = {
+						head: info,
+						list: list.map(util.toStockObj)
+					}
+					if (typeof fn != 'undefined')
+						fn &amp;&amp; fn(res);
+				});
+			} else { //TODO info永远不为空！！
+				let res = {
+					head: info,
+					list: null
+				}
+				if (typeof fn != 'undefined')
+					fn &amp;&amp; fn(res);
+			}
+		});
+	}
+
+	copyToday(code, fn, todayData) {
+		// 通过kdb获取当天数据
+		if (!todayData) {
+			// 获取历史数据
+			this.getHistory(code, (list) => {
+				//TODO 获取当天数据方式不好（顺序变换后，找不到）
+				let info = list[list.length - 1];
+				if (info[1] != util.getNowDate()) {
+					logger.info(code + ',当天数据未更新');
+					if (typeof fn != 'undefined')
+						fn &amp;&amp; fn(null);
+					return;
+				}
+				// 获取趋势
+				info.trend = util.getTrend(list[list.length - 2], info);
+				logger.info(code + ',当天数据: ' + JSON.stringify(info));
+
+				if (typeof fn != 'undefined')
+					fn &amp;&amp; fn(info);
+				// 写入当天数据
+				store.insert('stock', info);
+			});
+		}
+		// 保存当天数据
+		else {
+			// 获取历史数据
+			store.select('stock', {
+				code: code
+			}, (data) => {
+				// DB有数据时
+				if (data &amp;&amp; data.length != 0) {
+					//console.log(data.slice(data.length - 39, data.length))
+					// kd值计算
+					let res = analyst.getKDList(data.slice(data.length - 39, data.length)),
+						lastKD = res.kdList[res.kdList.length - 1];
+					todayData.k = (lastKD.k != null &amp;&amp; lastKD.k != undefined) ? Math.round(lastKD.k) : null;
+					todayData.d = (lastKD.d != null &amp;&amp; lastKD.d != undefined) ? Math.round(lastKD.d) : null;
+					todayData.trend = util.getTrend(data[data.length - 1], todayData);
+					// 间隔
+					todayData.period = null;
+					// 时间
+					todayData.time = null;
+					store.delete('stock', {
+						code: code,
+						date: todayData.date
+					}, () => {
+						// console.log(todayData);
+						// 写入当天数据
+						store.insert('stock', todayData);
+					});
+				}
+			});
+		}
+	}
+
+	get(code, fn) {
+		if (!code) return;
+		if (code.indexOf('-T') != -1) {
+			code = code.split('-T')[0];
+		}
+		store.select('stock', {
+			code: code
+		}, (data) => {
+			// DB没有数据时
+			if (!data || data.length == 0) {
+				this.copyQuote(code, fn);
+			} else {
+				store.select('stock_master', {
+					code: code
+				}, (head) => {
+					let res = {
+						head: head[0],
+						list: data
+					}
+					if (typeof fn != 'undefined')
+						fn &amp;&amp; fn(res);
+				});
+			}
+		});
+	}
+
+	getList(code, fn) {
+		if (!code) return;
+		if (code.indexOf('-T') != -1) {
+			code = code.split('-T')[0];
+		}
+		store.select('stock', {
+			code: code
+		}, (data) => {
+			// DB没有数据时
+			if (!data || data.length == 0) {
+				this.copyQuote(code, fn);
+			} else {
+				let res = {
+					data: data
+				}
+				if (typeof fn != 'undefined')
+					fn &amp;&amp; fn(res);
+			}
+		});
+	}
+
+	getStockList(fn) {
+		store.select('stock_master', null, (data) => {
+			if (typeof fn != 'undefined')
+				fn &amp;&amp; fn(data);
+		});
+	}
+
+	getNoSetKDList(fn) {
+		store.select('stock', {
+			period: null,
+			k: null
+		}, (data) => {
+			if (typeof fn != 'undefined')
+				fn &amp;&amp; fn(data);
+		});
+	}
+
+	saveDde(record) {
+		if (record) {
+			store.select('dde', {
+				date: record.date,
+				time: record.time,
+				topic: record.topic,
+				item: record.item
+			}, (data) => {
+				// db中没有数据时，插入数据
+				if (!data || data.length == 0) {
+					store.insert('dde', record);
+				} else {
+					logger.info('数据库中存在重复数据，不进行插入操作', record);
+				}
+			});
+		}
+	}
+}
+export default Kdb;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sat Aug 05 2017 16:16:28 GMT+0900 (东京标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

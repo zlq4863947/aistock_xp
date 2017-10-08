@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TaskList - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-common_schedule-Scheduler.html">Scheduler</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-Scheduler.html#invok">invok</a></li></ul></li><li><a href="module-common_schedule-TaskList.html">TaskList</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-TaskList.html#autoRakutennLogin">autoRakutennLogin</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#do">do</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#doSniper">doSniper</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#updateTodayQuote">updateTodayQuote</a></li></ul></li><li><a href="module-core_analyst-Analyst.html">Analyst</a><ul class='methods'><li data-type='method'><a href="module-core_analyst-Analyst.html#getKDList">getKDList</a></li></ul></li><li><a href="module-core_inspector-DdeInspector.html">DdeInspector</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-DdeInspector.html#listen">listen</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#runServ">runServ</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#sendTick">sendTick</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#start">start</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#stop">stop</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchDde">watchDde</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchQuote">watchQuote</a></li></ul></li><li><a href="module-core_inspector-WebSocket.html">WebSocket</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-WebSocket.html#close">close</a></li><li data-type='method'><a href="module-core_inspector-WebSocket.html#listen">listen</a></li></ul></li><li><a href="module-core_sniper-Sniper.html">Sniper</a><ul class='methods'><li data-type='method'><a href="module-core_sniper-Sniper.html#start">start</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#stop">stop</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#watch">watch</a></li></ul></li><li><a href="module-core_webdriver-WebDriver.html">WebDriver</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver-WebDriver.html#end">end</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#getPrice">getPrice</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#init">init</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#refresh">refresh</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb-Gdb.html">Gdb</a><ul class='methods'><li data-type='method'><a href="module-market_gdb-Gdb.html#calcK">calcK</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#get">get</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#makeNowS">makeNowS</a></li></ul></li><li><a href="module-market_hesonogoma-Hesonogoma.html">Hesonogoma</a><ul class='methods'><li data-type='method'><a href="module-market_hesonogoma-Hesonogoma.html#getStockList">getStockList</a></li></ul></li><li><a href="module-market_kdb-Kdb.html">Kdb</a><ul class='methods'><li data-type='method'><a href="module-market_kdb-Kdb.html#getHead">getHead</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-common_log.html">common/log</a><ul class='methods'><li data-type='method'><a href="module-common_log.html#~get">get</a></li><li data-type='method'><a href="module-common_log.html#~init">init</a></li></ul></li><li><a href="module-common_schedule.html">common/schedule</a></li><li><a href="module-common_util.html">common/util</a><ul class='methods'><li data-type='method'><a href="module-common_util.html#~getCsvData">getCsvData</a></li><li data-type='method'><a href="module-common_util.html#~getHttp">getHttp</a></li><li data-type='method'><a href="module-common_util.html#~getHttps">getHttps</a></li><li data-type='method'><a href="module-common_util.html#~getNowDate">getNowDate</a></li><li data-type='method'><a href="module-common_util.html#~getNowDatetime">getNowDatetime</a></li><li data-type='method'><a href="module-common_util.html#~getTrend">getTrend</a></li><li data-type='method'><a href="module-common_util.html#~isHoliday">isHoliday</a></li><li data-type='method'><a href="module-common_util.html#~isTradeDate">isTradeDate</a></li><li data-type='method'><a href="module-common_util.html#~isWeekend">isWeekend</a></li><li data-type='method'><a href="module-common_util.html#~leftpad">leftpad</a></li><li data-type='method'><a href="module-common_util.html#~sleep">sleep</a></li><li data-type='method'><a href="module-common_util.html#~toStockArr">toStockArr</a></li><li data-type='method'><a href="module-common_util.html#~toStockObj">toStockObj</a></li></ul></li><li><a href="module-core_analyst.html">core/analyst</a></li><li><a href="module-core_inspector.html">core/inspector</a></li><li><a href="module-core_sniper.html">core/sniper</a></li><li><a href="module-core_webdriver.html">core/webdriver</a></li><li><a href="module-core_webdriver_helper.html">core/webdriver/helper</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver_helper.html#.errLogin">errLogin</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.login">login</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginCancel">marginCancel</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.spotBuy">spotBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb.html">market/gdb</a></li><li><a href="module-market_hesonogoma.html">market/hesonogoma</a></li><li><a href="module-market_kdb.html">market/kdb</a></li></ul><h3>Mixins</h3><ul><li><a href="globalNS.method1.html">method1</a></li></ul><h3>Global</h3><ul><li><a href="global.html#app">app</a></li><li><a href="global.html#bar">bar</a></li><li><a href="global.html#bloviate">bloviate</a></li><li><a href="global.html#foo">foo</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">TaskList</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-common_schedule.html">common/schedule</a>~</span>
+        
+        TaskList
+        </h2>
+        
+            <div class="class-description">定时任务表</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="TaskList"><span class="type-signature"></span>new TaskList<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="common_schedule.js.html">common/schedule.js</a>, <a href="common_schedule.js.html#line50">line 50</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="autoRakutennLogin"><span class="type-signature"></span>autoRakutennLogin<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="common_schedule.js.html">common/schedule.js</a>, <a href="common_schedule.js.html#line114">line 114</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>作为服务器运行有问题。</li>
+        </ul>
+    </dd>
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    乐天自动登录
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="do"><span class="type-signature"></span>do<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="common_schedule.js.html">common/schedule.js</a>, <a href="common_schedule.js.html#line174">line 174</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    定时任务表执行方法
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="doSniper"><span class="type-signature"></span>doSniper<span class="signature">(cron<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="common_schedule.js.html">common/schedule.js</a>, <a href="common_schedule.js.html#line57">line 57</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>交易日判定待修改</li>
+        </ul>
+    </dd>
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    每交易日启动短线狙击手
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>cron</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>'30 15 * * *'</code>
+                
+                </td>
+            
+
+            <td class="description last">Cron表达式</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="updateTodayQuote"><span class="type-signature"></span>updateTodayQuote<span class="signature">(cron<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="common_schedule.js.html">common/schedule.js</a>, <a href="common_schedule.js.html#line79">line 79</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    每天15：30执行数据更新
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>cron</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>'30 15 * * *'</code>
+                
+                </td>
+            
+
+            <td class="description last">Cron表达式</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sat Aug 05 2017 16:16:28 GMT+0900 (东京标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

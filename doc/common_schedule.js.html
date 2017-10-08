@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>common/schedule.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-common_schedule-Scheduler.html">Scheduler</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-Scheduler.html#invok">invok</a></li></ul></li><li><a href="module-common_schedule-TaskList.html">TaskList</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-TaskList.html#autoRakutennLogin">autoRakutennLogin</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#do">do</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#doSniper">doSniper</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#updateTodayQuote">updateTodayQuote</a></li></ul></li><li><a href="module-core_analyst-Analyst.html">Analyst</a><ul class='methods'><li data-type='method'><a href="module-core_analyst-Analyst.html#getKDList">getKDList</a></li></ul></li><li><a href="module-core_inspector-DdeInspector.html">DdeInspector</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-DdeInspector.html#listen">listen</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#runServ">runServ</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#sendTick">sendTick</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#start">start</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#stop">stop</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchDde">watchDde</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchQuote">watchQuote</a></li></ul></li><li><a href="module-core_inspector-WebSocket.html">WebSocket</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-WebSocket.html#close">close</a></li><li data-type='method'><a href="module-core_inspector-WebSocket.html#listen">listen</a></li></ul></li><li><a href="module-core_sniper-Sniper.html">Sniper</a><ul class='methods'><li data-type='method'><a href="module-core_sniper-Sniper.html#start">start</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#stop">stop</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#watch">watch</a></li></ul></li><li><a href="module-core_webdriver-WebDriver.html">WebDriver</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver-WebDriver.html#end">end</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#getPrice">getPrice</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#init">init</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#refresh">refresh</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb-Gdb.html">Gdb</a><ul class='methods'><li data-type='method'><a href="module-market_gdb-Gdb.html#calcK">calcK</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#get">get</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#makeNowS">makeNowS</a></li></ul></li><li><a href="module-market_hesonogoma-Hesonogoma.html">Hesonogoma</a><ul class='methods'><li data-type='method'><a href="module-market_hesonogoma-Hesonogoma.html#getStockList">getStockList</a></li></ul></li><li><a href="module-market_kdb-Kdb.html">Kdb</a><ul class='methods'><li data-type='method'><a href="module-market_kdb-Kdb.html#getHead">getHead</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-common_log.html">common/log</a><ul class='methods'><li data-type='method'><a href="module-common_log.html#~get">get</a></li><li data-type='method'><a href="module-common_log.html#~init">init</a></li></ul></li><li><a href="module-common_schedule.html">common/schedule</a></li><li><a href="module-common_util.html">common/util</a><ul class='methods'><li data-type='method'><a href="module-common_util.html#~getCsvData">getCsvData</a></li><li data-type='method'><a href="module-common_util.html#~getHttp">getHttp</a></li><li data-type='method'><a href="module-common_util.html#~getHttps">getHttps</a></li><li data-type='method'><a href="module-common_util.html#~getNowDate">getNowDate</a></li><li data-type='method'><a href="module-common_util.html#~getNowDatetime">getNowDatetime</a></li><li data-type='method'><a href="module-common_util.html#~getTrend">getTrend</a></li><li data-type='method'><a href="module-common_util.html#~isHoliday">isHoliday</a></li><li data-type='method'><a href="module-common_util.html#~isTradeDate">isTradeDate</a></li><li data-type='method'><a href="module-common_util.html#~isWeekend">isWeekend</a></li><li data-type='method'><a href="module-common_util.html#~leftpad">leftpad</a></li><li data-type='method'><a href="module-common_util.html#~sleep">sleep</a></li><li data-type='method'><a href="module-common_util.html#~toStockArr">toStockArr</a></li><li data-type='method'><a href="module-common_util.html#~toStockObj">toStockObj</a></li></ul></li><li><a href="module-core_analyst.html">core/analyst</a></li><li><a href="module-core_inspector.html">core/inspector</a></li><li><a href="module-core_sniper.html">core/sniper</a></li><li><a href="module-core_webdriver.html">core/webdriver</a></li><li><a href="module-core_webdriver_helper.html">core/webdriver/helper</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver_helper.html#.errLogin">errLogin</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.login">login</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginCancel">marginCancel</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.spotBuy">spotBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb.html">market/gdb</a></li><li><a href="module-market_hesonogoma.html">market/hesonogoma</a></li><li><a href="module-market_kdb.html">market/kdb</a></li></ul><h3>Mixins</h3><ul><li><a href="globalNS.method1.html">method1</a></li></ul><h3>Global</h3><ul><li><a href="global.html#app">app</a></li><li><a href="global.html#bar">bar</a></li><li><a href="global.html#bloviate">bloviate</a></li><li><a href="global.html#foo">foo</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">common/schedule.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * 定时任务执行模块
+ * 
+ * @module common/schedule
+ */
+import schedule from 'node-schedule';
+import logger from './log';
+import Kdb from '../market/kdb';
+import store from '../store/mysql';
+import util from './util';
+import robot from 'robotjs';
+import timelineplayer from 'timelineplayer';
+import Sniper from '../core/sniper';
+
+/**
+ * @class
+ * @classdesc Cron表达式定时器
+ *
+ * @param {string=}[cron='30 15 * * *'] Cron表达式&lt;br/>
+ **    *    *    *    *    *&lt;br/>
+ *┬    ┬    ┬    ┬    ┬    ┬&lt;br/>
+ *│    │    │    │    │    └ 星期 (0 - 7) (0 or 7 为星期日)&lt;br/>
+ *│    │    │    │    └───── 月 (1 - 12)&lt;br/>
+ *│    │    │    └────────── 天 (1 - 31)&lt;br/>
+ *│    │    └─────────────── 小时 (0 - 23)&lt;br/>
+ *│    └──────────────────── 分钟 (0 - 59)&lt;br/>
+ *└───────────────────────── 秒 (0 - 59, 可选)
+ */
+class Scheduler {
+	constructor(cron) {
+		this.cron = cron || '30 15 * * *';
+	}
+
+	/**
+	 * 执行任务计划
+	 * @param  {Function} fn 具体执行的处理方法
+	 */
+	invok(fn) {
+		if (!fn) return;
+		this.reminder = schedule.scheduleJob(this.cron, () => {
+			fn();
+		})
+	}
+}
+
+/**
+ * @class
+ * @classdesc 定时任务表
+ */
+class TaskList {
+
+	/**
+	 * 每交易日启动短线狙击手
+	 * @param {string=}[cron='30 15 * * *'] Cron表达式
+	 * @todo 交易日判定待修改
+	 */
+	doSniper(cron) {
+		const job = new Scheduler(cron);
+
+		job.invok(() => {
+			/*if (!util.isTradeDate(new Date())) {
+				return;
+			}*/
+			let txt = util.getNowDatetime() + ' 定时执行短线狙击手';
+			logger.info(txt);
+			let sniper = new Sniper();
+			if (cron.split(' ')[1] &lt; 12) {
+				sniper.start('am');
+			} else {
+				sniper.start('pm');
+			}
+		});
+	}
+
+	/**
+	 * 每天15：30执行数据更新
+	 * @param {string=}[cron='30 15 * * *'] Cron表达式
+	 */
+	updateTodayQuote(cron) {
+		const job = new Scheduler(cron);
+		const kdb = new Kdb();
+
+		job.invok(() => {
+			if (!util.isTradeDate(new Date())) {
+				let txt = "判断为节假日，不执行定时任务";
+				logger.info(txt);
+				return;
+			}
+
+			let txt = util.getNowDatetime() + ' 定时任务执行';
+			logger.info(txt);
+			let hour = 15;
+			store.select('stock_master', null, async(data) => {
+				for (let item of data) {
+					kdb.copyToday(item.code, (res) => {
+						// 未找到更新数据时，延迟1小时继续执行
+						if (res == null) {
+							hour += 1;
+							let taskList = new TaskList();
+							taskList.updateTodayQuote('30 ' + hour + ' * * *');
+						}
+					});
+					await util.sleep(5000);
+				}
+				//job.reminder.cancel()
+			});
+		});
+	}
+
+	/**
+	 * 乐天自动登录
+	 * @todo 作为服务器运行有问题。
+	 */
+	autoRakutennLogin() {
+
+		// 每天7：30执行数据更新
+		//const job = new Scheduler('30 7 * * *');
+
+		//job.invok(() => {
+		// 登录坐标
+		let loginPos = {
+				x: 762,
+				y: 154
+			},
+			loginHex;
+		(new timelineplayer([
+
+			[0, function() {
+				robot.moveMouse(82, 780)
+				robot.mouseClick();
+			}],
+
+			[2000, function() {
+				loginHex = robot.getPixelColor(loginPos.x, loginPos.y);
+				logger.info(loginHex)
+					// #49ff00 绿色
+				if (loginHex == '49ff00') {
+					logger.info("判定为登出状态，执行自动登录");
+
+					robot.keyTap("enter");
+					robot.moveMouse(loginPos.x, loginPos.y);
+					robot.mouseClick();
+				}
+			}],
+
+			[4000, function() {
+				if (loginHex == '49ff00') {
+					robot.typeString("xxx");
+					robot.keyTap("enter");
+				}
+
+			}],
+
+			[5000, function() {
+				if (loginHex == '49ff00') {
+					robot.keyTap("enter");
+					let hex = robot.getPixelColor(loginPos.x, loginPos.y);
+
+					// #ff0000 红色
+					if (hex == 'ff0000') {
+						logger.info('登录成功！');
+					}
+				}
+			}]
+		], function(p, v) {
+			v[1]();
+		})).play();
+		//});
+	}
+
+	/**
+	 * 定时任务表执行方法
+	 */
+	do() {
+		// 启动短线狙击手
+		//this.doSniper('55 8 * * *');
+		//this.doSniper('25 12 * * *');
+
+		// 启动当天数据更新服务
+		this.updateTodayQuote();
+		// 乐天自动登录
+		//this.autoRakutennLogin();
+	}
+}
+
+export default TaskList;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sat Aug 05 2017 16:16:28 GMT+0900 (东京标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

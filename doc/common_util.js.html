@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>common/util.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-common_schedule-Scheduler.html">Scheduler</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-Scheduler.html#invok">invok</a></li></ul></li><li><a href="module-common_schedule-TaskList.html">TaskList</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-TaskList.html#autoRakutennLogin">autoRakutennLogin</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#do">do</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#doSniper">doSniper</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#updateTodayQuote">updateTodayQuote</a></li></ul></li><li><a href="module-core_analyst-Analyst.html">Analyst</a><ul class='methods'><li data-type='method'><a href="module-core_analyst-Analyst.html#getKDList">getKDList</a></li></ul></li><li><a href="module-core_inspector-DdeInspector.html">DdeInspector</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-DdeInspector.html#listen">listen</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#runServ">runServ</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#sendTick">sendTick</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#start">start</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#stop">stop</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchDde">watchDde</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchQuote">watchQuote</a></li></ul></li><li><a href="module-core_inspector-WebSocket.html">WebSocket</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-WebSocket.html#close">close</a></li><li data-type='method'><a href="module-core_inspector-WebSocket.html#listen">listen</a></li></ul></li><li><a href="module-core_sniper-Sniper.html">Sniper</a><ul class='methods'><li data-type='method'><a href="module-core_sniper-Sniper.html#start">start</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#stop">stop</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#watch">watch</a></li></ul></li><li><a href="module-core_webdriver-WebDriver.html">WebDriver</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver-WebDriver.html#end">end</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#getPrice">getPrice</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#init">init</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#refresh">refresh</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb-Gdb.html">Gdb</a><ul class='methods'><li data-type='method'><a href="module-market_gdb-Gdb.html#calcK">calcK</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#get">get</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#makeNowS">makeNowS</a></li></ul></li><li><a href="module-market_hesonogoma-Hesonogoma.html">Hesonogoma</a><ul class='methods'><li data-type='method'><a href="module-market_hesonogoma-Hesonogoma.html#getStockList">getStockList</a></li></ul></li><li><a href="module-market_kdb-Kdb.html">Kdb</a><ul class='methods'><li data-type='method'><a href="module-market_kdb-Kdb.html#getHead">getHead</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-common_log.html">common/log</a><ul class='methods'><li data-type='method'><a href="module-common_log.html#~get">get</a></li><li data-type='method'><a href="module-common_log.html#~init">init</a></li></ul></li><li><a href="module-common_schedule.html">common/schedule</a></li><li><a href="module-common_util.html">common/util</a><ul class='methods'><li data-type='method'><a href="module-common_util.html#~getCsvData">getCsvData</a></li><li data-type='method'><a href="module-common_util.html#~getHttp">getHttp</a></li><li data-type='method'><a href="module-common_util.html#~getHttps">getHttps</a></li><li data-type='method'><a href="module-common_util.html#~getNowDate">getNowDate</a></li><li data-type='method'><a href="module-common_util.html#~getNowDatetime">getNowDatetime</a></li><li data-type='method'><a href="module-common_util.html#~getTrend">getTrend</a></li><li data-type='method'><a href="module-common_util.html#~isHoliday">isHoliday</a></li><li data-type='method'><a href="module-common_util.html#~isTradeDate">isTradeDate</a></li><li data-type='method'><a href="module-common_util.html#~isWeekend">isWeekend</a></li><li data-type='method'><a href="module-common_util.html#~leftpad">leftpad</a></li><li data-type='method'><a href="module-common_util.html#~sleep">sleep</a></li><li data-type='method'><a href="module-common_util.html#~toStockArr">toStockArr</a></li><li data-type='method'><a href="module-common_util.html#~toStockObj">toStockObj</a></li></ul></li><li><a href="module-core_analyst.html">core/analyst</a></li><li><a href="module-core_inspector.html">core/inspector</a></li><li><a href="module-core_sniper.html">core/sniper</a></li><li><a href="module-core_webdriver.html">core/webdriver</a></li><li><a href="module-core_webdriver_helper.html">core/webdriver/helper</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver_helper.html#.errLogin">errLogin</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.login">login</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginCancel">marginCancel</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.spotBuy">spotBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb.html">market/gdb</a></li><li><a href="module-market_hesonogoma.html">market/hesonogoma</a></li><li><a href="module-market_kdb.html">market/kdb</a></li></ul><h3>Mixins</h3><ul><li><a href="globalNS.method1.html">method1</a></li></ul><h3>Global</h3><ul><li><a href="global.html#app">app</a></li><li><a href="global.html#bar">bar</a></li><li><a href="global.html#bloviate">bloviate</a></li><li><a href="global.html#foo">foo</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">common/util.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * 共通模块
+ * 
+ * @module common/util
+ */
+import http from 'http';
+import https from 'https';
+import csv from 'fast-csv';
+import jpHolidays from 'japanese-holidays';
+import datejs from 'datejs';
+import _ from 'lodash';
+
+/**
+ * 日志对象
+ */
+const util = {
+	/**
+	 * 判断是否为假日
+	 * @func isHoliday
+	 * @param  {Date} date 日期
+	 */
+	isHoliday: function(date) {
+		return jpHolidays.isHoliday(date) ? true : false;
+	},
+	/**
+	 * 判断是否为周末
+	 * @func isWeekend
+	 * @param  {Date} date 日期
+	 * @return {boolean} 为周末时返回true
+	 */
+	isWeekend: function(date) {
+		return date.getDay() % 6 == 0 ? true : false;
+	},
+	/**
+	 * 判断是否为交易日
+	 * @func isTradeDate
+	 * @param  {Date} date 日期
+	 * @return {boolean} 为交易日时返回true
+	 */
+	isTradeDate: function(date) {
+		return !this.isHoliday(date) &amp;&amp; !this.isWeekend(date);
+	},
+	/**
+	 * 获取当前日时
+	 * @func getNowDatetime
+	 * @param  {string} date 日期('yyyy-MM-dd HH:mm:ss.ms')
+	 * @return {string} 当前日时
+	 */
+	getNowDatetime: function() {
+		let d = new Date().toString('yyyy-MM-dd HH:mm:ss.ms');
+		return d.substr(0, d.length - 1);
+	},
+	/**
+	 * 获取当前日期
+	 * @func getNowDate
+	 * @param  {string} date 日期('yyyy-MM-dd')
+	 * @return {string} 当前日期
+	 */
+	getNowDate: function() {
+		return Date.today().toString('yyyy-MM-dd');
+	},
+	/**
+	 * 左侧填充
+	 * @func leftpad
+	 * @param  {string} str 待填充字符串
+	 * @param  {string} len 需要填充的长度
+	 * @param  {string=}[ch=' '] 填充字符
+	 * @return {string} 已填充字符串
+	 */
+	leftpad: function(str, len, ch) {
+		str = String(str);
+		if (!ch &amp;&amp; ch !== 0) ch = ' ';
+		return String(ch).repeat(len - str.length) + str;
+	},
+	/**
+	 * 获取http资源
+	 * @func getHttp
+	 * @param  {string}   url 资源url路径
+	 * @param  {requestCallback} fn  回调函数
+	 */
+	getHttp: function(url, fn) {
+		http.get(url, (res) => {
+			//console.log(`STATUS: ${res.statusCode}`);
+			//console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+
+			let body = '';
+			res.setEncoding('utf8');
+
+			res.on('data', (chunk) => {
+				body += chunk;
+			});
+
+			res.on('end', () => {
+				fn &amp;&amp; fn(body);
+			});
+		})
+	},
+	/**
+	 * 获取https资源
+	 * @func getHttps
+	 * @param  {string}   url 资源url路径
+	 * @param  {requestCallback} fn  回调函数
+	 */
+	getHttps: function(url, fn) {
+		https.get(url, (res) => {
+			//console.log(`STATUS: ${res.statusCode}`);
+			//console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+
+			let body = '';
+			res.setEncoding('utf8');
+
+			res.on('data', (chunk) => {
+				body += chunk;
+			});
+
+			res.on('end', () => {
+				fn &amp;&amp; fn(body);
+			});
+		})
+	},
+	/**
+	 * 获取csv格式数据
+	 * @func getCsvData
+	 * @param  {string}   code 股票代码
+	 * @param  {string}   url 资源url路径
+	 * @param  {requestCallback} fn  回调函数
+	 */
+	getCsvData: function(code, url, fn) {
+		this.getHttp(url, (res) => {
+			let dataArr = [];
+			csv.fromString(res)
+				.on("data", function(data) {
+					data.splice(0, 0, code);
+					dataArr.push(data);
+				})
+				.on("end", function() {
+					fn &amp;&amp; fn(dataArr);
+				});
+		});
+	},
+	/**
+	 * 判定趋势
+	 * @func getTrend
+	 * @param  {array}   preData 前一条数据
+	 * @param  {array}   nowData 当前数据
+	 * @return {string}  [0：盘整，1：跌势，2：涨势]
+	 * @example
+	 * 参数数组格式：
+	 * [0][1][2][3][4][5][6][7][8]
+	 * [代码][日期][开盘][最高][最安][收盘][6][7][8]
+	 */
+	getTrend: function(preData, nowData) {
+		var trend = "0"; //盘整
+		// 当天收盘 >= 昨天最高
+		if (parseFloat(nowData[5]) >= parseFloat(preData[3])) {
+			trend = "2"; // 涨势
+		}
+		// 当天收盘 &lt;= 昨天最低
+		else if (parseFloat(nowData[5]) &lt;= preData[4]) {
+			trend = "1"; // 跌势
+		}
+		return trend;
+	},
+	/**
+	 * 指定休眠时间
+	 * @func sleep
+	 * @param  {string} ms 休眠的毫秒数
+	 * 
+	 * @example
+	 * async function demo() {
+	 *  console.log('Taking a break...');
+	 *  await util.sleep(4000);
+	 *  console.log('Two second later');
+	 *}
+	 * demo();
+	 */
+	sleep: function(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	},
+	/**
+	 * 转换成股票对象
+	 * @func toStockObj
+	 * @param  {array}   arr 股票数组
+	 * @return {object}  股票对象
+	 * @example
+	 * ['code', 'date', 'open', 'high', 'low', 'close', 'volume', 'turnover', 'trend', 'period', 'time', 'k', 'd'];
+	 * arr to obj -> list.map(util.toStockObj)
+	 */
+	toStockObj: function(arr) {
+		let names = ['code', 'date', 'open', 'high', 'low', 'close', 'volume', 'turnover', 'trend', 'period', 'time', 'k', 'd'];
+		return arr.reduce(function(p, c, i) {
+			p[names[i]] = c;
+			return p;
+		}, {});
+	},
+	/**
+	 * 转换成股票数组
+	 * @func toStockArr
+	 * @param {array} objs 股票对象格式的数组
+	 * @return  {array}   股票数组
+	 * @example
+	 * {a:1,b:2} ->[1,2]
+	 */
+	toStockArr: function(objs) {
+		return _.map(objs, function(val) {
+			return val;
+		});
+	}
+};
+
+export default util;
+
+/**
+ * 资源请求回调函数
+ * 
+ * @callback requestCallback
+ * @param {object} response 响应对象
+ */</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sat Aug 05 2017 16:16:28 GMT+0900 (东京标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

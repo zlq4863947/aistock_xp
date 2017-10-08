@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>core/inspector.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-common_schedule-Scheduler.html">Scheduler</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-Scheduler.html#invok">invok</a></li></ul></li><li><a href="module-common_schedule-TaskList.html">TaskList</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-TaskList.html#autoRakutennLogin">autoRakutennLogin</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#do">do</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#doSniper">doSniper</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#updateTodayQuote">updateTodayQuote</a></li></ul></li><li><a href="module-core_analyst-Analyst.html">Analyst</a><ul class='methods'><li data-type='method'><a href="module-core_analyst-Analyst.html#getKDList">getKDList</a></li></ul></li><li><a href="module-core_inspector-DdeInspector.html">DdeInspector</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-DdeInspector.html#listen">listen</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#runServ">runServ</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#sendTick">sendTick</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#start">start</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#stop">stop</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchDde">watchDde</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchQuote">watchQuote</a></li></ul></li><li><a href="module-core_inspector-WebSocket.html">WebSocket</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-WebSocket.html#close">close</a></li><li data-type='method'><a href="module-core_inspector-WebSocket.html#listen">listen</a></li></ul></li><li><a href="module-core_sniper-Sniper.html">Sniper</a><ul class='methods'><li data-type='method'><a href="module-core_sniper-Sniper.html#start">start</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#stop">stop</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#watch">watch</a></li></ul></li><li><a href="module-core_webdriver-WebDriver.html">WebDriver</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver-WebDriver.html#end">end</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#getPrice">getPrice</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#init">init</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#refresh">refresh</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb-Gdb.html">Gdb</a><ul class='methods'><li data-type='method'><a href="module-market_gdb-Gdb.html#calcK">calcK</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#get">get</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#makeNowS">makeNowS</a></li></ul></li><li><a href="module-market_hesonogoma-Hesonogoma.html">Hesonogoma</a><ul class='methods'><li data-type='method'><a href="module-market_hesonogoma-Hesonogoma.html#getStockList">getStockList</a></li></ul></li><li><a href="module-market_kdb-Kdb.html">Kdb</a><ul class='methods'><li data-type='method'><a href="module-market_kdb-Kdb.html#getHead">getHead</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-common_log.html">common/log</a><ul class='methods'><li data-type='method'><a href="module-common_log.html#~get">get</a></li><li data-type='method'><a href="module-common_log.html#~init">init</a></li></ul></li><li><a href="module-common_schedule.html">common/schedule</a></li><li><a href="module-common_util.html">common/util</a><ul class='methods'><li data-type='method'><a href="module-common_util.html#~getCsvData">getCsvData</a></li><li data-type='method'><a href="module-common_util.html#~getHttp">getHttp</a></li><li data-type='method'><a href="module-common_util.html#~getHttps">getHttps</a></li><li data-type='method'><a href="module-common_util.html#~getNowDate">getNowDate</a></li><li data-type='method'><a href="module-common_util.html#~getNowDatetime">getNowDatetime</a></li><li data-type='method'><a href="module-common_util.html#~getTrend">getTrend</a></li><li data-type='method'><a href="module-common_util.html#~isHoliday">isHoliday</a></li><li data-type='method'><a href="module-common_util.html#~isTradeDate">isTradeDate</a></li><li data-type='method'><a href="module-common_util.html#~isWeekend">isWeekend</a></li><li data-type='method'><a href="module-common_util.html#~leftpad">leftpad</a></li><li data-type='method'><a href="module-common_util.html#~sleep">sleep</a></li><li data-type='method'><a href="module-common_util.html#~toStockArr">toStockArr</a></li><li data-type='method'><a href="module-common_util.html#~toStockObj">toStockObj</a></li></ul></li><li><a href="module-core_analyst.html">core/analyst</a></li><li><a href="module-core_inspector.html">core/inspector</a></li><li><a href="module-core_sniper.html">core/sniper</a></li><li><a href="module-core_webdriver.html">core/webdriver</a></li><li><a href="module-core_webdriver_helper.html">core/webdriver/helper</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver_helper.html#.errLogin">errLogin</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.login">login</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginCancel">marginCancel</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.spotBuy">spotBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb.html">market/gdb</a></li><li><a href="module-market_hesonogoma.html">market/hesonogoma</a></li><li><a href="module-market_kdb.html">market/kdb</a></li></ul><h3>Mixins</h3><ul><li><a href="globalNS.method1.html">method1</a></li></ul><h3>Global</h3><ul><li><a href="global.html#app">app</a></li><li><a href="global.html#bar">bar</a></li><li><a href="global.html#bloviate">bloviate</a></li><li><a href="global.html#foo">foo</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">core/inspector.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * 情报员模块
+ * 
+ * @module core/inspector
+ */
+import dde from 'node-dde';
+import ws from 'ws';
+import Kdb from '../market/kdb';
+import util from '../common/util';
+import timelineplayer from 'timelineplayer';
+import ddeConfig from '../api/dde.json';
+import logger from '../common/log';
+import datejs from 'datejs';
+const kdb = new Kdb();
+/**
+ * 情报员 Inspector
+ * Created by 23tl on 2017/4/16.
+ */
+/*class Inspector {
+    constructor() {
+        this.webSocket = new WebSocket();
+    }
+
+    listen(mock) {
+        // 启动实时更新服务
+        this.webSocket.listen(mock);
+    }
+}*/
+
+/**
+ * @class
+ * @classdesc DDE情报员
+ */
+class DdeInspector {
+    constructor(codeList, mock, watchStock) {
+        if (codeList &amp;&amp; codeList.length != 0) {
+            this.tick = {};
+            this.mock = mock;
+            this.watchStock = watchStock;
+            // 监视项目
+            this.items = !watchStock ? ddeConfig.watchItems : ddeConfig.watchStock;
+            // 项目名对应关系映射
+            this.mapper = ddeConfig.watchMapper;
+
+            // 真实模式
+            if (!mock) {
+                let RSS = this.RSS = {};
+                for (var i = 0; i &lt; codeList.length; i++) {
+                    RSS[codeList[i] + '.T'] = this.items;
+                }
+
+                // 多只股票检测
+                if (codeList.length > 1) {
+                    this.client = dde.createClients({
+                        RSS
+                    }, 'shift_jis');
+                } else if (codeList.length == 1) { // 单只股票检测
+                    this.client = dde.createClient('RSS', Object.keys(RSS)[0]);
+                }
+            } else { // 测试模式
+                let T_RSS = this.T_RSS = {};
+                for (var i = 0; i &lt; codeList.length; i++) {
+                    T_RSS[codeList[i] + '.T'] = this.items;
+                }
+
+                // 多只股票检测
+                if (codeList.length > 1) {
+                    this.client = dde.createClients({
+                        T_RSS
+                    }, 'shift_jis');
+                } else if (codeList.length == 1) { // 单只股票检测
+                    this.client = dde.createClient('T_RSS', Object.keys(T_RSS)[0]);
+                }
+            }
+            //logger.info(this);
+        }
+    }
+
+    /**
+     * 运行dde监听服务
+     * @param  {WebSocket} ws WebSocket类实例
+     */
+    runServ(ws) {
+        let dde = this;
+        (new timelineplayer([
+            [1000, function() {
+                ws ? ws.ddeIntcer.listen(ws) : dde.listen();
+            }],
+            [43200000, function() { //12H
+                ws ? ws.ddeIntcer.stop() : dde.stop();
+            }]
+        ], function(p, v) {
+            v[1]();
+        })).play();
+    }
+
+    /**
+     * 监听实时数据
+     * @param  {WebSocket} ws WebSocket类实例
+     */
+    listen(ws) {
+        let client = this.client;
+        client.connect();
+        logger.info("监听状态: " + client.isConnected());
+
+        client.on('advise', function(service, topic, item, text) {
+            //logger.info("topic:", topic, "item:", item, "text:", text);
+            logger.info("topic:", topic, "item:", item, "text:", text);
+            if (item == '売買代金') {
+                // 売買代金*1000
+                text = parseFloat(text) * 1000;
+            }
+            console.log(text)
+                // 实时更新股价
+            if (this.watchStock) {
+                this.watchQuote(topic, item, text);
+            }
+            // 实时更新交易详情
+            else {
+                this.watchDde(topic, item, text);
+            }
+
+        }.bind(this));
+
+        this.start();
+    }
+
+    /**
+     * 监听dde数据
+     */
+    watchDde(topic, item, text) {
+        // 该股票tick数据没有时
+        if (!this.tick[topic]) {
+            // 初始化
+            this.tick[topic] = {};
+            // 股票代码
+            this.tick[topic].code = topic.split('.T')[0];
+            // 时间(YYYY-MM-DD)
+            this.tick[topic].date = this.mock ? this.mock.date : util.getNowDate();
+            // 开盘unix时间戳
+            this.tick[topic].open_time = Date.parse(this.tick[topic].date + 'T09:00:00').getTime() / 1000;
+        }
+        // 去掉u0000字符 并且设置tick数据
+        this.tick[topic][this.mapper[item]] = parseFloat(text.trim().split("\u0000")[0]) + '';
+        if (item == '現在値詳細時刻') {
+            this.tick[topic]['epoch'] = Date.today().at(this.tick[topic][this.mapper[item]]).getTime() / 1000;
+        }
+
+        let nowTime = new Date().toString('HH:mm:ss.ms');
+        nowTime = nowTime.substr(0, nowTime.length - 1);
+
+        // 存入DB
+        let record = {
+            date: this.tick[topic].date,
+            time: nowTime,
+            topic: topic,
+            item: item,
+            text: text.trim()
+        };
+
+        // 有值时存储
+        if (record.text) {
+            kdb.saveDde(record);
+        }
+
+        // 收到【現在値詳細時刻】数据时
+        if (this.tick[topic]['epoch'] &amp;&amp; this.tick[topic]["close"] &amp;&amp; this.tick[topic]["low"] &amp;&amp; this.tick[topic]["high"] &amp;&amp; this.tick[topic]["open_time"] &amp;&amp; this.tick[topic]["open"]) {
+            // 当上一次股价为空，或者上一次股价不等于本次股价时
+            if (!this.tick[topic]['preClose'] || this.tick[topic]['preClose'] != this.tick[topic]['close']) {
+                logger.info("sendTick:", topic);
+                // 发送ws
+                this.sendTick(topic, (data) => {
+                    if (ws) {
+                        ws.send(JSON.stringify(data), (err) => {
+                            if (err) {
+                                logger.info(`[SERVER] error: ${err}`);
+                            }
+                        });
+                    }
+                });
+            }
+            this.tick[topic]['preClose'] = this.tick[topic]['close'];
+        }
+        //logger.info("tick:", this.tick);
+    }
+
+    /**
+     * 监听报价数据
+     */
+    watchQuote(topic, item, text) {
+
+        // 该股票tick数据没有时
+        if (!this.tick[topic]) {
+            // 初始化
+            this.tick[topic] = {};
+            // 股票代码
+            this.tick[topic].code = topic.split('.T')[0];
+            // 时间(YYYY-MM-DD)
+            this.tick[topic].date = this.mock ? this.mock.date : util.getNowDate();
+        }
+        // 去掉u0000字符 并且设置tick数据
+        this.tick[topic][this.mapper[item]] = parseFloat(text.trim().split("\u0000")[0]);
+
+        // 收到詳細数据时
+        if (this.tick[topic]['close'] &amp;&amp; this.tick[topic]['low'] &amp;&amp; this.tick[topic]['high'] &amp;&amp; this.tick[topic]['open'] &amp;&amp; this.tick[topic]['volume'] &amp;&amp; this.tick[topic]['turnover']) {
+            let todayData = this.tick[topic];
+            kdb.copyToday(todayData.code, null, todayData);
+        }
+    }
+
+    /**
+     * 发送tick数据
+     */
+    sendTick(topic, fn) {
+        let lastTick = {
+            "echo_req": {
+                "count": 1,
+                "end": "latest",
+                "granularity": 86400,
+                "style": "candles",
+                "subscribe": 1,
+                "ticks_history": this.tick[topic].code
+            },
+            "msg_type": "candles",
+            "candles": [{
+                "close": this.tick[topic].close,
+                "epoch": this.tick[topic].epoch,
+                "granularity": 86400,
+                "high": this.tick[topic].high,
+                //"id": "d0ceee7c-3653-c654-31e9-f7f8e7f53e90",
+                "low": this.tick[topic].low,
+                "open": this.tick[topic].open,
+                "open_time": this.tick[topic].open_time,
+                "symbol": this.tick[topic].code
+            }]
+        }
+        logger.info('lastTick:', lastTick);
+
+        if (typeof fn != 'undefined')
+            fn &amp;&amp; fn(lastTick);
+    }
+
+    /**
+     * 开启监听
+     */
+    start() {
+        // 多只股票检测
+        if (Object.keys(!this.mock ? this.RSS : this.T_RSS).length > 1) {
+            this.client.startAdvise();
+        } else if (Object.keys(!this.mock ? this.RSS : this.T_RSS).length == 1) { // 单只股票检测
+            for (var i = 0; i &lt; this.items.length; i++) {
+                this.client.startAdvise(this.items[i]);
+            }
+        }
+    }
+
+    /**
+     * 关闭监听
+     */
+    stop() {
+        if (this.client.isConnected()) {
+            if (Object.keys(!this.mock ? this.RSS : this.T_RSS).length > 1) {
+                this.client.stopAdvise();
+            } else if (Object.keys(!this.mock ? this.RSS : this.T_RSS).length == 1) {
+                for (var i = 0; i &lt; this.items.length; i++) {
+                    this.client.stopAdvise(this.items[i]);
+                }
+            }
+            this.client.dispose();
+        }
+    }
+}
+
+
+/**
+ * @class
+ * @classdesc WebSocket类
+ */
+class WebSocket {
+    constructor(port) {
+        this.port = process.env.PORT || '7071';
+        this.server = new ws.Server({
+            port: this.port
+        });
+    }
+
+    /**
+     * 监听实时数据
+     */
+    listen(mock) {
+        this.server.on('connection', function(ws) {
+            ws.on('message', function(message) {
+                logger.info(`[SERVER] Received: ${message}`);
+                var msg = JSON.parse(message);
+                // 获取市场信息
+                if (msg.trading_times) {
+                    kdb.getStockList((data) => {
+                        if (data) {
+                            var symbols = [];
+                            for (var i = 0; i &lt; data.length; i++) {
+                                symbols.push({
+                                    name: data[i].name,
+                                    settlement: '',
+                                    symbol: data[i].code,
+                                    times: {
+                                        close: ['--'],
+                                        open: ['--'],
+                                        settlement: '--'
+                                    }
+                                })
+                            }
+                            var res = {
+                                "echo_req": {
+                                    "req_id": 1,
+                                    "trading_times": util.getNowDate()
+                                },
+                                "msg_type": "trading_times",
+                                "req_id": 1,
+                                "trading_times": {
+                                    "markets": [{
+                                        "name": "股票",
+                                        "submarkets": [{
+                                            "name": "东证",
+                                            "symbols": symbols
+                                        }]
+                                    }]
+                                }
+                            };
+                            logger.info(res);
+                            ws.send(JSON.stringify(res), (err) => {
+                                if (err) {
+                                    logger.info(`[SERVER] error: ${err}`);
+                                }
+                            });
+                        }
+                    });
+                } else if (msg.ticks_history) { //获取商品历史数据
+                    // {"ticks_history":"5341","start":1493337600,"end":"latest","granularity":"D1","adjust_start_time":1}
+                    kdb.get(msg.ticks_history, (data) => {
+                        if (data &amp;&amp; data.list) {
+                            var candles = data.list;
+                            for (var i = 0; i &lt; candles.length; i++) {
+                                // 设置Unix时间戳(毫秒转成秒)
+                                candles[i].epoch = Date.parse(candles[i].date + 'T09:00:00') / 1000;
+                            }
+                            var res = {
+                                msg_type: 'candles',
+                                req_id: 2,
+                                candles: candles,
+                                echo_req: {
+                                    adjust_start_time: 1,
+                                    count: 5000,
+                                    end: 'latest',
+                                    granularity: 86400,
+                                    req_id: 2,
+                                    start: candles[0].epoch,
+                                    style: 'candles',
+                                    ticks_history: msg.ticks_history
+                                }
+                            }
+                            ws.send(JSON.stringify(res), (err) => {
+                                if (err) {
+                                    logger.info(`[SERVER] error: ${err}`);
+                                }
+                            });
+                        }
+                        /*
+                        try {
+                            logger.info('DDE获取最新行情');
+                            // 获取最新行情
+                            //TODO 多个WS时有隐患？
+                            if (ws.ddeIntcer) {
+                                logger.info('已经开启dde监听：', Object.keys(ws.ddeIntcer.tick));
+                                ws.ddeIntcer.stop();
+                                logger.info('关闭后,重开监听：', msg.ticks_history);
+                            }
+                            ws.ddeIntcer = new DdeInspector([msg.ticks_history], mock);
+                            ws.ddeIntcer.runServ(ws);
+                        } catch (err) {
+                            logger.info("ddeIntcer异常:", err);
+                        }*/
+                    });
+                }
+            });
+
+            ws.on('close', () => {
+                if (ws.ddeIntcer) {
+                    logger.info('on close ws,', Object.keys(ws.ddeIntcer.tick));
+                    ws.ddeIntcer.stop();
+                }
+            });
+        });
+
+        console.log('ws server started at port ' + this.port + '...');
+    }
+
+    /**
+     * 关闭监听
+     */
+    close() {
+        this.server.close();
+    }
+}
+
+export default {
+    WebSocket: WebSocket,
+    DdeInspector: DdeInspector
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sat Aug 05 2017 16:16:28 GMT+0900 (东京标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

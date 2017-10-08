@@ -1,0 +1,129 @@
+<link rel="stylesheet" href="./lib/onoffswitch.css"/>
+<link rel="stylesheet" href="./lib/sweetalert/sweetalert.min.css"/>
+<script src="./lib/sweetalert/sweetalert.min.js"></script>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <a class="navbar-brand" href="/"><span class="triangles animated fadeOut">
+      <div class="tri invert"></div>
+      <div class="tri invert"></div>    
+      <div class="tri"></div>
+      <div class="tri invert" "></div>
+      <div class="tri invert"></div>
+      <div class="tri"></div>
+      <div class="tri invert"></div>
+      <div class="tri"></div>
+      <div class="tri invert"></div></span><span>AiStock</span><span class="badge badge-up badge-danger">1</span></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <div id="searchFrom" class="navbar-form navbar-left animated">
+            <div class="input-group">
+                <input id="filter" type="text" class="form-control" placeholder="股票代码" value=""/>
+                <span class="input-group-btn"><button id="searchBtn"  class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button></span>
+            </div>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+                <div class="onoffswitch navbar-form">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </li>
+            <li><a class="" href="/">主页</a></li>
+            <li><a class="" href="/tv">tv</a></li>
+            <li><a class="" href="/ai">智能机器人</a></li>
+            <li><a class="" href="/wa?code=6553">观察者</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Top 100 </span><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="" href="/top">Top Overall</a></li>
+                    <li class="dropdown-submenu"><a class="" href="/top/caldari">Caldari</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="" href="/top/caldari/achura">Achura</a></li>
+                            <li><a class="" href="/top/caldari/civire">Civire</a></li>
+                            <li><a class="" href="/top/caldari/deteis">Deteis</a></li>
+                        </ul></li>
+                    <li class="dropdown-submenu"><a class="" href="/top/gallente">Gallente</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="" href="/top/gallente/gallente">Gallente</a></li>
+                            <li><a class="" href="/top/gallente/intaki">Intaki</a></li>
+                            <li><a class="" href="/top/gallente/jin-mei">Jin-Mei</a></li>
+                        </ul></li>
+                    <li class="dropdown-submenu"><a class="" href="/top/minmatar">Minmatar</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="" href="/top/minmatar/brutor">Brutor</a></li>
+                            <li><a class="" href="/top/minmatar/sebiestor">Sebiestor</a></li>
+                            <li><a class="" href="/top/minmatar/vherokior">Vherokior</a></li>
+                        </ul></li>
+                    <li class="dropdown-submenu"><a class="" href="/top/amarr">Amarr</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="" href="/top/amarr/amarr">Amarr</a></li>
+                            <li><a class="" href="/top/amarr/ni-kunni">Ni-Kunni</a></li>
+                            <li><a class="" href="/top/amarr/khanid">Khanid</a></li>
+                        </ul></li>
+                    <li class="divider"></li>
+                    <li><a class="" href="/shame">Hall of Shame</a></li>
+                </ul></li>
+            <li ><a class="" href="/add">Add</a></li>
+        </ul>
+    </div>
+</nav>
+<script>
+$(function() {
+    $.ajax({
+        url: "/rt",
+        success: function(res) {
+            $("#myonoffswitch").prop('checked', res == 1);
+        }
+    });
+});
+$("#myonoffswitch").click(function() {
+    var act = $(this).is(":checked");
+    $(this).prop('checked', !$(this).is(":checked"));
+    swal({
+        title: "口令!",
+        text: "请输入当日口令:",
+        type: "input",
+        showCancelButton: true,
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        closeOnConfirm: false,
+        animation: "slide-from-bottom",
+        inputPlaceholder: "写点什么吧"
+    }, function(inputValue) {
+        if (inputValue === false) return false;
+
+        if (inputValue === "") {
+            swal.showInputError("请输入当日口令!");
+            //$('#myonoffswitch').prop('checked', false);
+            return false
+        }
+
+        $.ajax({
+            url: "/rt",
+            data: {auth:inputValue,action:act},
+            success: function(res) {
+                console.log(res)
+                if(res == "true") {
+                    $("#myonoffswitch").prop('checked', act);
+                    swal({
+                        title: "漂亮!",
+                        text: "口令验证成功！",
+                        type: "success",
+                        confirmButtonText: "确定"
+                    });
+                } else {
+                    swal({
+                        title: "尴尬!",
+                        text: "口令验证失败！",
+                        type: "error",
+                        confirmButtonText: "确定"
+                    });
+                }
+            }
+        });
+    });
+});
+</script>

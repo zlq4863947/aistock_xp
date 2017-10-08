@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>market/gdb.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-common_schedule-Scheduler.html">Scheduler</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-Scheduler.html#invok">invok</a></li></ul></li><li><a href="module-common_schedule-TaskList.html">TaskList</a><ul class='methods'><li data-type='method'><a href="module-common_schedule-TaskList.html#autoRakutennLogin">autoRakutennLogin</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#do">do</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#doSniper">doSniper</a></li><li data-type='method'><a href="module-common_schedule-TaskList.html#updateTodayQuote">updateTodayQuote</a></li></ul></li><li><a href="module-core_analyst-Analyst.html">Analyst</a><ul class='methods'><li data-type='method'><a href="module-core_analyst-Analyst.html#getKDList">getKDList</a></li></ul></li><li><a href="module-core_inspector-DdeInspector.html">DdeInspector</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-DdeInspector.html#listen">listen</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#runServ">runServ</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#sendTick">sendTick</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#start">start</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#stop">stop</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchDde">watchDde</a></li><li data-type='method'><a href="module-core_inspector-DdeInspector.html#watchQuote">watchQuote</a></li></ul></li><li><a href="module-core_inspector-WebSocket.html">WebSocket</a><ul class='methods'><li data-type='method'><a href="module-core_inspector-WebSocket.html#close">close</a></li><li data-type='method'><a href="module-core_inspector-WebSocket.html#listen">listen</a></li></ul></li><li><a href="module-core_sniper-Sniper.html">Sniper</a><ul class='methods'><li data-type='method'><a href="module-core_sniper-Sniper.html#start">start</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#stop">stop</a></li><li data-type='method'><a href="module-core_sniper-Sniper.html#watch">watch</a></li></ul></li><li><a href="module-core_webdriver-WebDriver.html">WebDriver</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver-WebDriver.html#end">end</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#getPrice">getPrice</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#init">init</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#refresh">refresh</a></li><li data-type='method'><a href="module-core_webdriver-WebDriver.html#toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb-Gdb.html">Gdb</a><ul class='methods'><li data-type='method'><a href="module-market_gdb-Gdb.html#calcK">calcK</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#get">get</a></li><li data-type='method'><a href="module-market_gdb-Gdb.html#makeNowS">makeNowS</a></li></ul></li><li><a href="module-market_hesonogoma-Hesonogoma.html">Hesonogoma</a><ul class='methods'><li data-type='method'><a href="module-market_hesonogoma-Hesonogoma.html#getStockList">getStockList</a></li></ul></li><li><a href="module-market_kdb-Kdb.html">Kdb</a><ul class='methods'><li data-type='method'><a href="module-market_kdb-Kdb.html#getHead">getHead</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-common_log.html">common/log</a><ul class='methods'><li data-type='method'><a href="module-common_log.html#~get">get</a></li><li data-type='method'><a href="module-common_log.html#~init">init</a></li></ul></li><li><a href="module-common_schedule.html">common/schedule</a></li><li><a href="module-common_util.html">common/util</a><ul class='methods'><li data-type='method'><a href="module-common_util.html#~getCsvData">getCsvData</a></li><li data-type='method'><a href="module-common_util.html#~getHttp">getHttp</a></li><li data-type='method'><a href="module-common_util.html#~getHttps">getHttps</a></li><li data-type='method'><a href="module-common_util.html#~getNowDate">getNowDate</a></li><li data-type='method'><a href="module-common_util.html#~getNowDatetime">getNowDatetime</a></li><li data-type='method'><a href="module-common_util.html#~getTrend">getTrend</a></li><li data-type='method'><a href="module-common_util.html#~isHoliday">isHoliday</a></li><li data-type='method'><a href="module-common_util.html#~isTradeDate">isTradeDate</a></li><li data-type='method'><a href="module-common_util.html#~isWeekend">isWeekend</a></li><li data-type='method'><a href="module-common_util.html#~leftpad">leftpad</a></li><li data-type='method'><a href="module-common_util.html#~sleep">sleep</a></li><li data-type='method'><a href="module-common_util.html#~toStockArr">toStockArr</a></li><li data-type='method'><a href="module-common_util.html#~toStockObj">toStockObj</a></li></ul></li><li><a href="module-core_analyst.html">core/analyst</a></li><li><a href="module-core_inspector.html">core/inspector</a></li><li><a href="module-core_sniper.html">core/sniper</a></li><li><a href="module-core_webdriver.html">core/webdriver</a></li><li><a href="module-core_webdriver_helper.html">core/webdriver/helper</a><ul class='methods'><li data-type='method'><a href="module-core_webdriver_helper.html#.errLogin">errLogin</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.login">login</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginBuy">marginBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginCancel">marginCancel</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.marginSell">marginSell</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.spotBuy">spotBuy</a></li><li data-type='method'><a href="module-core_webdriver_helper.html#.toMargin">toMargin</a></li></ul></li><li><a href="module-market_gdb.html">market/gdb</a></li><li><a href="module-market_hesonogoma.html">market/hesonogoma</a></li><li><a href="module-market_kdb.html">market/kdb</a></li></ul><h3>Mixins</h3><ul><li><a href="globalNS.method1.html">method1</a></li></ul><h3>Global</h3><ul><li><a href="global.html#app">app</a></li><li><a href="global.html#bar">bar</a></li><li><a href="global.html#bloviate">bloviate</a></li><li><a href="global.html#foo">foo</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">market/gdb.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * google财经接口模块
+ * 
+ * @module market/gdb
+ */
+import _ from 'lodash';
+import numeral from 'numeral';
+import Hesonogoma from './hesonogoma';
+import util from '../common/util';
+import googleFinance from 'google-finance2';
+import moment from 'moment';
+//import Store from 'jfs';
+//const db = new Store("./path");
+const Stochastic = require('technicalindicators').Stochastic;
+
+/**
+ * @class
+ * @classdesc google财经接口 &lt;br>{@link http://www.google.com/intl/zh-CN/googlefinance/disclaimer/?ei=lHuEWYGOJcWY0ATG8I3IBA|交易所延迟时间说明}
+ */
+class Gdb {
+	/**
+	 * 获取股价数据
+	 * @param  {Object}   opt 参数对象
+	 * @param  {string}   opt.x 交易所代码
+	 * @param  {string}   opt.s 股票代码
+	 * @param  {string}   opt.i 间隔(秒)
+	 * @param  {string}   opt.p 区间单位(1d=一天)
+	 * @param  {Function} fn  回调函数
+	 * @return {array} 股价数组
+	 */
+	get(opt, fn) {
+		// 区间加1，以用于kdj计算
+		let pNum = opt.p ? parseInt(opt.p.slice(0, opt.p.length - 1)) + 1 : '';
+		let pStr = opt.p ? opt.p.slice(opt.p.length - 1, opt.p.length) : '';
+		googleFinance.prices({
+			symbol: opt.x + ':' + opt.s,
+			interval: opt.i,
+			period: pNum + pStr
+		}, (err, his) => {
+			let half_length = Math.ceil(his.length / 2);
+			//取得昨天数据
+			let leftSide = his.splice(0, half_length);
+			// 取得昨天最后9条数据
+			let last9 = leftSide.splice(leftSide.length - 8, leftSide.length - 1);
+			// 插入到当天数组
+			his = _.concat(last9, his);
+			if (opt.price) {
+				his = _.concat(his, this.makeNowS(opt.price, his[his.length - 1]));
+			}
+			let bars = this.calcK(his);
+			let res = {
+				// 取得当天数据
+				rows: _.filter(bars, {
+					'date': moment().format('YYYY-MM-DD')
+				})
+			};
+			if (typeof fn != 'undefined')
+				fn &amp;&amp; fn(res);
+		});
+	}
+
+	/**
+	 * 制作当前股价对象
+	 * @param  {string} price 价格
+	 * @param  {object} bar K线对象
+	 * @param  {string} bar.high 最高价
+	 * @param  {string} bar.low 最低价
+	 * @return {object} bar K线对象
+	 */
+	makeNowS(price, bar) {
+		bar.close = price;
+		if (bar.high &lt; price) {
+			bar.high = price;
+		}
+		if (bar.low > price) {
+			bar.low = price;
+		}
+
+		return bar;
+	}
+
+	/**
+	 * 计算K值
+	 * @param  {array} his K线数组
+	 * @return {array} 计算K值后的K线数组
+	 */
+	calcK(his) {
+
+		let closeList = _.chain(his).map(function(bar) {
+			return bar.close;
+		}).value();
+
+		let lowList = _.chain(his).map(function(bar) {
+			return bar.low;
+		}).value();
+
+		let highList = _.chain(his).map(function(bar) {
+			return bar.high;
+		}).value();
+
+		let input = {
+			high: highList,
+			low: lowList,
+			close: closeList,
+			period: 9,
+			signalPeriod: 3
+		};
+
+		let calcRes = Stochastic.calculate(input);
+
+		let bars = his.slice(his.length - calcRes.length, his.length);
+
+		for (let i = 0; i &lt; calcRes.length; i++) {
+			let date = moment(bars[i].date).utc();
+			bars[i].k = Math.round(calcRes[i].k);
+			bars[i].date = date.format('YYYY-MM-DD');
+			bars[i].time = date.format('HH:mm');
+		}
+		return bars;
+	}
+}
+export default Gdb;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.3</a> on Sat Aug 05 2017 16:16:28 GMT+0900 (东京标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

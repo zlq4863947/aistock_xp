@@ -1,0 +1,215 @@
+<div class="container">
+    <h3 id="title">{{> layouts/title}}</h3>
+    <button class="btn btn-default filter-show-clear" type="button" title="重新下载数据" onclick="reload()">
+        <i class="glyphicon glyphicon-cloud-download"></i>
+        <div id="reCode"/>
+    </button>
+    <div class="panel panel-default">
+        <table id="table" class="table table-striped">
+            <thead>
+            <tr>
+                <th data-field="date">日期</th>
+                <th data-field="trend" data-formatter="cellattr">趋势</th>
+                <th data-field="k">k</th>
+                <th data-field="open">始値</th>
+                <th data-field="close">終値</th>
+                <th data-field="high">高値</th>
+                <th data-field="low">安値</th>
+                <th data-field="volume">出来高</th>
+                <th data-field="turnover">売買代金</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<link rel="stylesheet" href="./lib/bootstrap-table/css/bootstrap-table.min.css"/>
+<script src="./lib/bootstrap-table/js/bootstrap-table.js"></script>
+<script>
+
+    function reload() {
+        var code = $("#reCode").data("code");
+
+        getStockInfo(code+"?reload=1",function (data) {
+            $('#table').bootstrapTable('load',data);
+        });
+    }
+    function cellattr(value, row) { 
+        var style = "font-weight:bolder;font-size:large;",
+            trendName = "";
+         if(value == "2") {
+           trendName = "涨势";
+           style = style + "color:red;";
+         } else if(value == "0") {
+            trendName = "盘整";
+           style = style + "color:blue;";
+         } else if(value == "1") {
+           trendName = "跌势";
+           style = style + "color:green;";
+         }
+
+        return '<i style="' + style + '">'+trendName+'</i>';
+    }
+    function getStockInfo(code,fn) {
+
+        $.getJSON("/stock/"+code, function (data) {
+            /*if(!data.head)  {
+                sachErr();
+                return;
+            }*/
+            if(data.head) {
+              $("#title").text(data.head.title);
+            } else {
+              $("#title").text(code);
+            }
+            if(data.list) {
+                // 取得60天内数据
+                var kData = data.list.reverse().slice(0,60);//.slice(0,60);
+                fn(kData);
+            } else {
+                getYQLData(code, function(data) {
+                    fn(data);
+                });
+            }
+        });
+    }
+    function getYQLData(code,fn) {
+
+        $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent("select * from html where url='http://k-db.com/stocks/"+code+"-T?download=csv'") + "&format=json&callback=?", function (data) {
+            var csvData = data.query.results.body;
+            var jsonData = csvToJson(csvData);
+
+            // 取得60内数据
+            var kData = remapKey(jsonData,{
+                始値:"open",
+                安値:"low",
+                高値:"high",
+                終値:"close",
+                出来高:"volume",
+                売買代金:"turnover",
+                日付:"date"
+            });
+            kData = kData.slice(0,61).reverse();
+            var trendData = [];
+            $.each(kData, function(i) {
+                if(i != 0) {
+                    this.trend = getTrend(kData[i-1], kData[i]);
+                } else {
+                    this.trend ="";
+                }
+                trendData.push(this);
+            });
+            trendData.shift();
+            trendData = trendData.reverse();
+            fn(trendData);
+        });
+    }
+    function sachErr() {
+        $("#searchFrom").addClass("shake");
+        setTimeout(function () {
+            $("#searchFrom").removeClass('shake');
+        }, 1000);
+    }
+    $(function () {
+        $("#reCode").data("code", 6553);
+        getStockInfo("6553", function (data) {
+            $('#table').bootstrapTable({
+                data: data
+            });
+        });
+        $("#searchBtn").click(function() {
+            var code = $("#filter").val();
+            if (code.indexOf('-T') != -1) {
+                code = code.split('-T')[0];
+            }
+
+            if(!code || code.length != 4) {
+                sachErr();
+                return false;
+            } else {
+                $("#reCode").data("code", code);
+                getStockInfo(code,function (data) {
+                    $('#table').bootstrapTable('load',data);
+                });
+            }
+        });
+        $("#filter").on('keydown', function(e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                $("#searchBtn").click()
+            }
+        });
+    });
+
+
+    /**
+     * [getTrend 获取趋势判断]
+     * @param  {[type]} preData [昨天数据]
+     * @param  {[type]} nowData [当天数据]
+     * @return {[type]}         [0：盘整，1：跌势，2：涨势]
+     */
+    function getTrend(preData, nowData) {
+        var trend = "0"; //盘整
+
+        // 当天收盘 >= 昨天最高
+        if(nowData.close >= preData.high) {
+            trend = "2"; // 涨势
+        }
+        // 当天收盘 <= 昨天最低
+        else if(nowData.close <= preData.low) {
+            trend = "1"; // 跌势
+        }
+        return trend;
+    }
+
+    function csvToJson(bufferString) {
+        var arr = bufferString.split('\n');
+        var jsonObj = [];
+        var headers = arr[0].split(',');
+        for(var i = 1; i < arr.length; i++) {
+            var data = arr[i].split(',');
+            if(data[0]) {
+                var obj = {};
+                for(var j = 0; j < data.length; j++) {
+                    obj[headers[j].trim()] = data[j].trim();
+                }
+                jsonObj.push(obj);
+            }
+        }
+        return jsonObj;
+    }
+    /**
+     * <pre>
+     * JSON対象のkey名を変換する関数
+     * </pre>
+     * @param {json} lookup 変換したい配列
+     *    eg:{presetName:"label",presetId:"value"}
+     * @return {json} 変換後のJSON対象
+     *    eg:{presetName:1,presetId:2}.remapKey({presetName:"label",presetId:"value"}) = {label:1,value:2}
+     */
+    function remapKey(data,lookup) {
+        var $this = data;
+        for (var i = 0; i < $this.length; i++) {
+            var obj = $this[i];
+            for (var fromKey in lookup) {
+                if(typeof lookup[fromKey] != "object" && typeof lookup[fromKey] != "function") {
+                    var toKey = lookup[fromKey];
+                    var value = obj[fromKey];
+                    if(toKey && value) {
+                        obj[toKey] = value;
+                        if(fromKey != "日付") {
+                            obj[toKey] = parseFloat(value);
+                        } else {
+
+                            obj[toKey] = value;
+                        }
+                        delete obj[fromKey];
+                    } else {
+                        continue;
+                    }
+                }
+            }
+        }
+        return $this;
+    };
+</script>

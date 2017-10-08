@@ -1,0 +1,13 @@
+{
+	"source": {
+		"include": ["./src/app", "./src/app/common", "./src/app/core", "./src/app/market", "./src/app/core/webdriver"],
+		"exclude": ["./node_modules/", "./test"]
+
+	},
+	"opts": {
+		"template": "node_modules/docdash",
+		"encoding": "utf8",
+		"destination": "./doc/",
+		"readme": "readme.md"
+	}
+}

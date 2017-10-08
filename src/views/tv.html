@@ -1,0 +1,92 @@
+
+<script type="text/javascript" src="charting_library/charting_library.min.js"></script>
+<script type="text/javascript" src="charting_library/datafeed/udf/datafeed.js"></script>
+<script type="text/javascript" src="charting_library/datafeed/udf/FeedHandler.js"></script>
+<script type="text/javascript" src="charting_library/datafeed/udf/OHLCRequestResponseHandler.js"></script>
+<script type="text/javascript" src="charting_library/datafeed/udf/SymbolRequestResponseHandler.js"></script>
+<script type="text/javascript" src="charting_library/datafeed/udf/TickDataRequestResponseHandler.js"></script>
+<script type="text/javascript" src="charting_library/TradingController.js"></script>
+
+<script type="text/javascript" src="lib/reconnecting-websocket.min.js"></script>
+<script type="text/javascript" src="lib/lokijs.min.js"></script>
+<script type="text/javascript" src="lib/moment.min.js"></script>
+
+<script type="text/javascript">
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+	var datafeed = new Datafeeds.UDFCompatibleDatafeed();
+	var trading = new TradingController(datafeed);
+
+	TradingView.onready(function()
+	{
+
+	    TradingView.actualResolution = 'D';
+	    TradingView.currentlyDisplayedSymbol = '9437';
+		var widget = window.tvWidget = new TradingView.widget({
+			fullscreen: true,
+			symbol: TradingView.currentlyDisplayedSymbol,
+			interval: TradingView.actualResolution,
+			container_id: "tv_chart_container",
+			//	BEWARE: no trailing slash is expected in feed URL
+			datafeed: datafeed,
+			library_path: "charting_library/",
+			locale: getParameterByName('lang') || "zh",
+			//	Regression Trend-related functionality is not implemented yet, so it's hidden for a while
+			drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
+			disabled_features: ["use_localstorage_for_settings"],
+			enabled_features: ["study_templates", 'dome_widget'],
+			charts_storage_url: 'http://saveload.tradingview.com',
+            charts_storage_api_version: "1.1",
+			// client_id: 'tradingview.com',
+			client_id: 'trading_platform_demo',
+			timezone:'Asia/Tokyo',
+			user_id: 'public_user_id',
+		    overrides: {
+		        'mainSeriesProperties.candleStyle.upColor':'#d75442',
+		        'mainSeriesProperties.candleStyle.downColor':'#6ba583',
+		        'mainSeriesProperties.candleStyle.borderUpColor': '#5b1a13',
+		        'mainSeriesProperties.candleStyle.borderDownColor': '#225437'
+		    }/*,
+			widgetbar: {
+				details: true,
+				watchlist: true,
+				watchlist_settings: {
+					default_symbols: ["5341", "6502"],
+					readonly: false
+				}
+			},
+
+			rss_news_feed: {
+				"default": [ {
+					url: "https://demo_feed.tradingview.com/news?symbol={SYMBOL}",
+					name: "Yahoo Finance"
+				} ]
+			},
+
+			trading_controller: trading*/
+		});
+    
+	    widget.onChartReady(function() {
+	       //widget.chart().createStudy('MACD', false, false, [14, 30, "close", 9]);//技术指标MACD
+	       widget.chart().createStudy('Stochastic', false, false, [9, 3, 3], null, {"%d.color" : "#0000FF", "%k.color" : "#FF0000"});
+	       widget.chart().createStudy('Bollinger Bands');//技术指标Bollinger Bands
+			widget.chart().onIntervalChanged().subscribe(null, function(interval, obj) {
+		        console.log('Interval change : ', interval);
+		        TradingView.actualResolution = interval;
+			});
+			widget.chart().onSymbolChanged().subscribe(null, function(symbolChangeData, obj) {
+		        console.log('Symbol change : ', symbolChangeData.name);
+		        TradingView.currentlyDisplayedSymbol = symbolChangeData.name;
+			});
+		});
+	});
+
+</script>
+
+
+<div id="tv_chart_container" style="padding : 0px !important; width : 100%; height : 100%;"></div>

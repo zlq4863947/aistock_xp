@@ -1,0 +1,1 @@
+set DEBUG=aistock & npm start --watch

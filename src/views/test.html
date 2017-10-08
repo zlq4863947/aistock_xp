@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>趋势观察者</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="./lib/jqgrid/themes/jquery-ui.css" />
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./lib/jqgrid/css/ui.jqgrid.css" />
+    <link rel="stylesheet" href="./lib/jqGrid.bootstrap.css">
+    <style type="text/css">
+        html, body { font-size: 75%; }
+    </style>
+    <script type="text/javascript" src="./lib/jqgrid/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="./lib/jqgrid/js/i18n/grid.locale-en.js"></script>   
+    <script type="text/javascript" src="./lib/jqgrid/js/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery.sticky-kit.min.js"></script>
+    <!--script type="text/javascript" src="util.js"></script-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            'use strict';
+            var $grid = $("#list"),
+            cm = [
+                {name: 'date', caption:'日期'},//, width:80
+                {name: 'trend', caption:'趋势', 
+                    cellattr: function(rowId, tv, rawObject, cm, rdata) {
+                      var style = "font-weight:bolder;font-size:large;"
+                      if(tv == "涨势") {
+                        style = style + "color:red;";
+                      } else if(tv == "盘整") {
+                        style = style + "color:blue;";
+                      } else if(tv == "跌势") {
+                        style = style + "color:green;";
+                      }
+                      return 'style="'+style+'"';
+                    }
+                },
+                {name: 'open', caption:'始値'},
+                {name: 'close', caption:'終値'},
+                {name: 'high', caption:'高値'},
+                {name: 'low', caption:'安値'},
+                {name: 'volume', caption:'出来高',
+                    formatter:'currency',
+                    formatoptions: { suffix:' 株', thousandsSeparator:',',decimalPlaces: 0}
+                },
+                {name: 'turnover', caption:'売買代金',
+                    formatter:'currency',
+                    formatoptions: { suffix:' 円', thousandsSeparator:',',decimalPlaces: 0}
+                }
+            ];
+            $grid.jqGrid({
+                datatype: 'local',
+                data: [],//myData,
+                colNames: [
+                     '日期', '趋势', '始値', '終値', '高値', '安値', '出来高', '売買代金'
+                ],
+                colModel: cm,
+                multiselect : true,
+                gridview: true,
+                //rowNum : -1,
+                page: 1,
+                rownumbers: true,
+                ignoreCase: true,
+                caption: '趋势观察者',
+                height: 'auto',
+                loadComplete: function () {
+                    pin();
+                }
+            }); 
+
+        });
+    </script>   
+
+    <script type="text/javascript">
+        $(function(){
+
+            getStockInfo("6664");
+
+            $("#search").click(function() {
+                var code = $("#filter").val();
+                if (code.indexOf('-T') != -1) {
+                    code = code.split('-T')[0];
+                }
+                if(!code) code="6664";
+                getStockInfo(code);
+            });
+        })
+
+            function pin() {
+                var hdiv = $("#gbox_list .ui-jqgrid-hdiv");
+                hdiv.css("z-index",9999);
+                /*$(hdiv).css({
+                    position: "absolute",
+                    top: 0
+                });/**/
+                $(hdiv).stick_in_parent();
+            }
+
+            function getStockInfo(code) {
+
+                $.getJSON("/stock/"+code, function (data) {
+
+                    $("#list").setCaption(data.head.title);
+
+                    if(!data.list) {
+                        getYQLData();
+                    } else {
+                        // 取得60天内数据
+                        var kData = data.list;//.slice(0,60);
+                        loadGrid(kData,true);
+                    }
+                });
+            }
+
+            function getYQLData(code) {
+
+                $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent("select * from html where url='http://k-db.com/stocks/"+code+"-T?download=csv'") + "&format=json&callback=?", function (data) {
+                    var csvData = data.query.results.body;
+                    var jsonData = csvToJson(csvData);
+
+                    // 取得60内数据
+                    var kData = remapKey(jsonData.slice(0,60),{
+                        始値:"open",
+                        安値:"low",
+                        高値:"high",
+                        終値:"close",
+                        日付:"date"
+                    }).reverse();
+                    kData.shift()
+                    loadGrid(kData);
+                });
+            }
+
+            function loadGrid(kData,reverseFlg) {
+
+                    var trendData = [];
+                    $.each(kData, function(i) {
+                        var trend = "盘整", preData = {};
+                        if(i != 0) {
+                            preData = kData[i-1];
+                            // 当天收盘 >= 昨天最高
+                            if(this.close >= preData.high) {
+                                trend = "涨势";
+                            }
+                            // 当天收盘 <= 昨天最低
+                            else if(this.close <= preData.low) {
+                                trend = "跌势";
+                            }
+                            this.trend = trend;
+                        }
+                        trendData.push(this);
+                        /*trendData.push({
+                            open: code+"-T",
+                            //stockName: "アサヒ衛陶", 
+                            date: this.date,
+                            trend : trend
+                        });*/
+                    });
+                        if(reverseFlg) {
+                            //trendData.reverse();
+                            trendData = trendData.reverse().slice(0,60);
+                        }
+                    $("#list").clearGridData().setGridParam({
+                        datatype: "local",
+                        data:trendData,
+                        rowNum : trendData.length
+                    }).trigger("reloadGrid");
+                    //console.log(trendData)
+            }
+
+            function csvToJson(bufferString) {
+                var arr = bufferString.split('\n');
+                var jsonObj = [];
+                var headers = arr[0].split(',');
+                for(var i = 1; i < arr.length; i++) {
+                    var data = arr[i].split(',');
+                    if(data[0]) {
+                        var obj = {};
+                        for(var j = 0; j < data.length; j++) {
+                            obj[headers[j].trim()] = data[j].trim();
+                        }
+                        jsonObj.push(obj);
+                    }
+                }
+                return jsonObj;
+            }
+            /**     
+                   * <pre>
+                   * JSON対象のkey名を変換する関数
+                   * </pre>
+                   * @param {json} lookup 変換したい配列
+                   *    eg:{presetName:"label",presetId:"value"}
+                   * @return {json} 変換後のJSON対象
+                   *    eg:{presetName:1,presetId:2}.remapKey({presetName:"label",presetId:"value"}) = {label:1,value:2}
+                   */
+            function remapKey(data,lookup) {
+                var $this = data;
+                for (var i = 0; i < $this.length; i++) {
+                    var obj = $this[i];
+                    for (var fromKey in lookup) {
+                        if(typeof lookup[fromKey] != "object" && typeof lookup[fromKey] != "function") {
+                            var toKey = lookup[fromKey];
+                            var value = obj[fromKey];
+                            if(toKey && value) {
+                                obj[toKey] = value;
+                                if(fromKey != "日付") {
+                                    obj[toKey] = parseFloat(value);
+                                } else {
+                                    
+                                    obj[toKey] = value;
+                                }
+                                delete obj[fromKey];
+                            } else {
+                                continue;
+                            }
+                        }
+                    }
+                }
+                return $this;
+            };
+            function utc2dateString(utc_msec) {
+              d=new Date();
+              d.setTime(utc_msec);
+              return d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();
+            }
+
+            function GetQueryString(name)
+            {
+                 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                 var r = window.location.search.substr(1).match(reg);
+                 if(r!=null)return  unescape(r[2]); return null;
+            }
+    </script>   
+</head>
+<body>
+     <fieldset style="">
+        <input type="text" id="filter"/>
+        <button type="button" id="search">Filter</button>
+    </fieldset>
+    <table id="list"></table>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<h3 id="title">{{> layouts/title}}</h3>
+
+<div class="panel panel-default">
+    <div id="toolbar">
+    <div class="form-inline" role="form">
+        <input name="x" type="hidden" value="TYO">
+        <!--input name="p" class="form-control w70" type="hidden" value="1d"!-->
+        <div class="form-group">
+            <span>间隔: </span>
+            <input name="i" class="form-control w70" type="text" value="300">
+        </div>
+        <div class="form-group">
+            <span>区间: </span>
+            <input name="p" class="form-control w70" type="text" value="1d">
+        </div>
+        <div class="form-group">
+            <input name="s" class="form-control" type="text" value="6664" placeholder="股票代码">
+        </div>
+        <button id="ok" type="submit" class="btn btn-default">OK</button>
+    </div>
+    </div>
+    <table id="table"
+       data-toggle="table"
+       data-height="560"
+       data-toolbar="#toolbar"
+       data-show-refresh="true"
+       data-search="true"
+       data-show-toggle="true"
+       data-show-columns="true"
+       data-query-params="queryParams"
+       data-response-handler="responseHandler"
+       data-url="/gdb"
+       data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-field="date" data-sortable="true">日期</th>
+                <th data-field="time" data-sortable="true">时间</th>
+                <th data-field="k" data-sortable="true">k</th>
+                <th data-field="open" data-sortable="true">开盘价</th>
+                <th data-field="close" data-sortable="true">收盘价</th>
+                <th data-field="high" data-sortable="true">最高价</th>
+                <th data-field="low" data-sortable="true">最低价</th>
+                <th data-field="volume" data-sortable="true">成交量</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<link rel="stylesheet" href="./lib/bootstrap-table/css/bootstrap-table.min.css"/>
+<style>
+    .w70 {width: 70px !important;}
+</style>
+<script src="./lib/bootstrap-table/js/bootstrap-table.min.js"></script>
+<script src="./lib/bootstrap-table/js/bootstrap-table-zh-CN.min.js"></script>
+<script>
+    var $table = $('#table'),
+        $ok = $('#ok');
+
+    $(function () {
+        $ok.click(function () {
+            $table.bootstrapTable('refresh');
+        });
+    });
+
+    function queryParams() {
+        var params = {q:{x:'TYO'}};
+        $('#toolbar').find('input[name]').each(function () {
+            params['q'][$(this).attr('name')] = $(this).val();
+        });
+        return params;
+    }
+
+    function responseHandler(res) {
+        return res.rows;
+    }
+
+    function rowStyle(row, index) {
+        if(row.k>80) {
+            return {
+                classes: 'success'
+            };
+        } else if(row.k<20) {
+            return {
+                classes: 'danger'
+            };
+        }
+        var classes = ['active', 'success', 'info', 'warning', 'danger'];
+
+        return {};
+    }
+</script>
